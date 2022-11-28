@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Player</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="shortcut icon" href="../assets//Spotify_Icon_RGB_Green.png" type="image/x-icon"/>
+    <script src="dashboard.js" type="module"></script>
+</head>
+<body class="bg-black text-primary h-screen">
+    <main class="h-full grid-template grid-template-areas grid grid-cols-[250px_1fr] grid-rows-[1fr_auto]">
+        <aside class="sidenav">
+            <nav class="flex flex-col items-start gap-8 py-8 px-4">
+                <section>
+                <a href="/">
+                    <img class="h-10 w-full object-contain" src="../assets/Spotify_Logo_RGB_White.png" alt="Spotify">
+                </a>
+                </section>
+                <section>
+                    <ul class="flex flex-col gap-4 text-sm text-secondary">
+                        <li class="flex items-center gap-2 hover:text-primary cursor-pointer"><span class="material-symbols-outlined">home</span>Home</li>
+                        <li class="flex items-center gap-2 hover:text-primary cursor-pointer"><span class="material-symbols-outlined">search</span>Search</li>
+                    </ul>
+                </section>
+                <section id="user-playlists" class="w-full border-t border-light-black pt-4">
+                    <ul class="flex flex-col gap-4 text-ellipsis text-sm text-secondary">
+                    </ul>
+                </section>
+            </nav>
+        </aside>
+        <article class="content relative overflow-auto bg-transparent">
+            <header id="header" class="px-8 py-4 sticky top-0 bg-black/[0] z-10">
+                <nav class="flex justify-end relative">
+                    <button id="user-profile-btn" class="bg-black flex items-center gap-x-2 rounded-2xl p-1 px-2 hover:bg-light-black">
+                        <section>
+                            <svg id="default-image" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </section>
+                        <section class="flex justify-center gap-x-1">
+                            <h3 id="display-name"></h3>
+                            <i><span class="material-symbols-outlined">arrow_drop_down</span></i>
+                        </section>
+                    </button>
+                    <ul id="profile-menu" class="absolute hidden top-12 right-0 w-[200px] rounded-md bg-light-black p-1">
+                        <li class="hover:bg-gray w-full cursor-pointer rounded-md p-1">Acounts</li>
+                        <li class="hover:bg-gray w-full cursor-pointer rounded-md p-1">Profile</li>
+                        <li class="hover:bg-gray w-full cursor-pointer rounded-md p-1">Settings</li>
+                        <li id="logout" class="hover:bg-gray w-full cursor-pointer rounded-md p-1">Logout</li>
+                    </ul>
+                </nav>
+            </header>
+            <article id="cover-content" class="absolute grid content-center -z-[1] w-full h-72 top-0 px-4 bg-gradient-to-b from-light-black to-black-base pt-16">
+                <!-- <h1 class="text-6xl">Hello Aman</h1> -->
+                
+            </article>
+            <section id="page-content" class="mt-52 bg-black-base"></section>
+        </article>
+        <footer class="now-playing border-t border-t-light-black bg-black-secondary p-4 text-secondary">
+            <section class="grid grid-cols-[1fr_2fr_1fr] gap-4">
+                <section id="song-info" class="grid grid-cols-[auto_1fr] place-content-center gap-4 invisible">
+                    <img id="now-playing-image" class="h-12 w-12" src="" alt="title">
+                    <section class="flex flex-col justify-center">
+                        <h2 id="now-playing-song" class="text-sm font-semibold text-primary">Song title</h2>
+                        <p id="now-playing-artists" class="text-xs">Song Artists</p>
+                    </section>
+                </section>
+                <!-- section for audio control -->
+                <section id="audio-control" class="flex flex-col justify-center items-center">
+                    <section class="flex items-center justify-center">
+                        <button class="hover:text-primary" id="prev"><span style="font-size: 36px" class="material-symbols-outlined">skip_previous</span></button>
+                        <button class="hover:text-primary" id="play"><span style="font-size: 40px" class="material-symbols-outlined">play_circle</span></button>
+                        <button class="hover:text-primary" id="next"><span style="font-size: 36px" class="material-symbols-outlined">skip_next</span></button>
+                    </section>
+                    <section class="w-full flex items-center justify-center gap-4">
+                        <span id="song-duration-completed" class="text-sm">0:00</span>
+                        <section id="timeline" class="bg-secondary w-full cursor-pointer rounded-3xl">
+                            <section id="progress" class="h-2 w-0 bg-green rounded-3xl"></section>
+                        </section>
+                        <span id="total-song-duration" class="text-sm">0:00</span>
+                    </section>
+                </section>
+                <!-- section for volume -->
+                <section id="volume-control" class="flex items-center justify-center">
+                    <span class="material-symbols-outlined">volume_up</span>
+                    <input type="range" name="" id="volume" class="" value="100" min="0" max="100">
+                </section>
+            </section>    
+        </footer>
+    </main>
+</body>
+</html>
